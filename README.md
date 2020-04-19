@@ -18,3 +18,5 @@
   + 각 객체에 이동로직 적용.
 + OutputView
   + RacingGame의 결과를 받아서 출력
++ Validator
+  + 사용자 입력 검증
