@@ -15,6 +15,7 @@ public class GameResult {
                 .mapToInt(Car::getTravelDistance)
                 .max()
                 .getAsInt();
+
         cars.forEach((key, value) -> {
             if (value.getTravelDistance() == maxDistance) {
                 winners.put(key, value);

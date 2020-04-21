@@ -6,7 +6,6 @@ import java.util.HashMap;
 import java.util.List;
 
 public class RacingGame {
-    protected static final int BENCHMARK = 4;
 
     public GameResult run(List<String> carNames, int trial) {
         HashMap<String, Car> cars = new HashMap<>();
