@@ -1,16 +1,17 @@
 package racingCar.domain;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class GameResult {
-    private static HashMap<String, Car> carEntries;
+    private Map<String, Car> carEntries;
 
-    public GameResult(HashMap<String, Car> carEntries) {
-        GameResult.carEntries = carEntries;
+    public GameResult(Map<String, Car> carEntries) {
+        this.carEntries = carEntries;
     }
 
-    public HashMap<String, Car> getWinner() {
-        HashMap<String, Car> winners = new HashMap<>();
+    public Map<String, Car> getWinner() {
+        Map<String, Car> winners = new HashMap<>();
         int maxDistance = getMaxDistance();
         carEntries.forEach((key, value) -> {
             if (value.getTravelDistance() == maxDistance) {
@@ -20,14 +21,14 @@ public class GameResult {
         return winners;
     }
 
-    private static int getMaxDistance() {
+    private int getMaxDistance() {
         return carEntries.values().stream()
                 .mapToInt(Car::getTravelDistance)
                 .max()
                 .getAsInt();
     }
 
-    public HashMap<String, Car> getCars() {
+    public Map<String, Car> getCars() {
         return carEntries;
     }
 }
