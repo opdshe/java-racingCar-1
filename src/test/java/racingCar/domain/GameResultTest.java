@@ -4,7 +4,9 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -13,16 +15,19 @@ class GameResultTest {
     private static GameResult gameResult;
 
     @BeforeAll
-    public static void setup() {
-        List<Car> cars = Arrays
-                .asList(new Car("hotba"), new Car("pio"), new Car("ford"));
+    static void setup() {
+        HashMap<String, Car> cars =new HashMap<>();
+        List<String> carNames = Arrays.asList("hotba", "ford", "carpe");
+        carNames.forEach(carName -> cars.put(carName, new Car()));
         gameResult = new GameResult(cars);
     }
 
     @Test
-    void 우승자_찾기(){
-        gameResult.getCars().get(0).go( 5);
-        gameResult.getCars().get(1).go( 5);
-        assertThat(gameResult.getWiiner()).extracting("name").contains("hotba", "pio");
+    void 우승자_찾기() {
+        gameResult.getCars().get("hotba").go(5);
+        gameResult.getCars().get("ford").go(5);
+        assertThat(gameResult.getWinner())
+                .extracting("name")
+                .contains("hotba", "pio");
     }
 }

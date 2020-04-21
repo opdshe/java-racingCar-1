@@ -1,27 +1,29 @@
 package racingCar.domain;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 
 public class GameResult {
-    private static List<Car> cars;
+    private static HashMap<String, Car> cars;
 
-    public GameResult(List<Car> cars) {
+    public GameResult(HashMap<String, Car> cars) {
         GameResult.cars = cars;
     }
 
-    public List<Car> getWiiner() {
-        List<Car> winners = new ArrayList<>();
-        int maxDistance = cars.stream().mapToInt(Car::getTravelDistance).max().getAsInt();
-        cars.forEach(car ->{
-            if (car.getTravelDistance()==maxDistance) {
-                winners.add(car);
+    public HashMap<String, Car> getWinner() {
+        HashMap<String, Car> winners = new HashMap<>();
+        int maxDistance = cars.values().stream()
+                .mapToInt(Car::getTravelDistance)
+                .max()
+                .getAsInt();
+        cars.forEach((key, value) -> {
+            if (value.getTravelDistance() == maxDistance) {
+                winners.put(key, value);
             }
         });
         return winners;
     }
 
-    public List<Car> getCars() {
+    public HashMap<String, Car> getCars() {
         return cars;
     }
 }

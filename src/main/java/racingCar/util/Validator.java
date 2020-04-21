@@ -1,4 +1,4 @@
-package racingCar.Validator;
+package racingCar.util;
 
 import java.util.InputMismatchException;
 import java.util.List;
