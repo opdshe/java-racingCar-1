@@ -1,4 +1,4 @@
-package racingCar;
+package racingCar.Validator;
 
 import java.util.InputMismatchException;
 import java.util.List;
@@ -16,7 +16,6 @@ public class Validator {
             });
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
-            return false;
         }
         return true;
     }
@@ -27,7 +26,7 @@ public class Validator {
         }
     }
 
-    private static void checkCarNameLength(String carName) throws IllegalArgumentException {
+    public static void checkCarNameLength(String carName) throws IllegalArgumentException {
         if (carName.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException(carName + ": 자동차 이름은 다섯글자 이하만 가능합니다.");
         }
