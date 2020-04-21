@@ -15,7 +15,7 @@ class GameResultTest {
 
     @BeforeAll
     static void setup() {
-        HashMap<String, Car> cars =new HashMap<>();
+        HashMap<String, Car> cars = new HashMap<>();
         List<String> carNames = Arrays.asList("hotba", "ford", "carpe");
         carNames.forEach(carName -> cars.put(carName, new Car()));
         gameResult = new GameResult(cars);

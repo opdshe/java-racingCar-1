@@ -13,6 +13,6 @@ public class OutputView {
 
     public static void printWinners(HashMap<String, Car> cars) {
         String winners = String.join(", ", cars.keySet());
-        System.out.println(winners+ "가 우승했습니다.");
+        System.out.println(winners + "가 우승했습니다.");
     }
 }

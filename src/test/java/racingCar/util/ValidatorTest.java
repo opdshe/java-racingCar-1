@@ -3,7 +3,6 @@ package racingCar.util;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
-import java.util.InputMismatchException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -35,12 +34,12 @@ class ValidatorTest {
     }
 
     @Test
-    void 시도_회수_타입_획인(){
+    void 시도_회수_타입_획인() {
         assertThat(Validator.checkTrial("숫자")).isFalse();
     }
 
     @Test
-    void 시도_회수_범위_확인(){
+    void 시도_회수_범위_확인() {
         assertThat(Validator.checkTrial("0")).isFalse();
     }
 
