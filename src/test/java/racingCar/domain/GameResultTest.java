@@ -25,8 +25,6 @@ class GameResultTest {
     void 우승자_찾기() {
         gameResult.getCars().get("hotba").go(5);
         gameResult.getCars().get("ford").go(5);
-        assertThat(gameResult.getWinner())
-                .extracting("name")
-                .contains("hotba", "pio");
+        assertThat(gameResult.getWinner()).containsOnlyKeys("hotba", "ford");
     }
 }
