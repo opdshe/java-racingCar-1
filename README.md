@@ -17,6 +17,7 @@
   + randome number 생성하여 이동하는 로직 구현.
   + 각 객체에 이동로직 적용.
 + OutputView
-  + RacingGame의 결과를 받아서 출력
+  + 자동차들의 현재 이동거리를 출력
+  + RacingGame의 결과를 받아서 전체 결과를 출력
 + Validator
   + 사용자 입력 검증
