@@ -17,11 +17,10 @@ public class RacingGameTest {
     }
 
     @Test
-    void 자동차_게임_실행_확인() {
+    void 자동차_리스트_생성_확인() {
         List<String> carNames = Arrays.asList("hotba", "ford", "carpe");
-        int trial = 5;
-        assertThat(racingGame.run(carNames, trial).getCars().keySet())
-                .isNotNull()
-                .containsExactlyInAnyOrder("hotba", "ford", "carpe");
+        assertThat(racingGame.run(carNames, 5).getCars())
+                .extracting("name")
+                .containsOnly("hotba", "ford", "carpe");
     }
 }

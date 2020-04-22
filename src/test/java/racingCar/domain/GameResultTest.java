@@ -3,8 +3,8 @@ package racingCar.domain;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -15,16 +15,18 @@ class GameResultTest {
 
     @BeforeAll
     static void setup() {
-        HashMap<String, Car> cars = new HashMap<>();
+        List<Car> carEntries = new ArrayList<>();
         List<String> carNames = Arrays.asList("hotba", "ford", "carpe");
-        carNames.forEach(carName -> cars.put(carName, new Car()));
-        gameResult = new GameResult(cars);
+        carNames.forEach(carName -> carEntries.add(new Car(carName)));
+        gameResult = new GameResult(carEntries);
     }
 
     @Test
     void 우승자_찾기() {
-        gameResult.getCars().get("hotba").go(5);
-        gameResult.getCars().get("ford").go(5);
-        assertThat(gameResult.getWinner()).containsOnlyKeys("hotba", "ford");
+        gameResult.getCars().get(0).go(5);
+        gameResult.getCars().get(1).go(5);
+        assertThat(gameResult.getWinner())
+                .extracting("name")
+                .containsExactlyInAnyOrder("hotba", "ford");
     }
 }

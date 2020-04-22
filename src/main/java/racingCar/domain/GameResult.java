@@ -1,34 +1,34 @@
 package racingCar.domain;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GameResult {
-    private Map<String, Car> carEntries;
+    private List<Car> carEntries;
 
-    public GameResult(Map<String, Car> carEntries) {
+    public GameResult(List<Car> carEntries) {
         this.carEntries = carEntries;
     }
 
-    public Map<String, Car> getWinner() {
-        Map<String, Car> winners = new HashMap<>();
+    public List<Car> getWinner() {
+        List<Car> winners = new ArrayList<>();
         int maxDistance = getMaxDistance();
-        carEntries.forEach((key, value) -> {
-            if (value.getTravelDistance() == maxDistance) {
-                winners.put(key, value);
+        carEntries.forEach(car -> {
+            if (car.getTravelDistance() == maxDistance) {
+                winners.add(car);
             }
         });
         return winners;
     }
 
     private int getMaxDistance() {
-        return carEntries.values().stream()
+        return carEntries.stream()
                 .mapToInt(Car::getTravelDistance)
                 .max()
                 .getAsInt();
     }
 
-    public Map<String, Car> getCars() {
+    public List<Car> getCars() {
         return carEntries;
     }
 }
