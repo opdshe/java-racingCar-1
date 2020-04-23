@@ -9,10 +9,17 @@ import java.util.List;
 
 public class Application {
     public static void main(String[] args) {
-        RacingGame racingGame = new RacingGame();
         List<String> carNames = InputView.getCarNames();
         int trial = InputView.getTrial();
-        GameResult gameResult = racingGame.run(carNames, trial);
+
+        RacingGame racingGame = new RacingGame(carNames);
+        GameResult gameResult = null;
+
+        System.out.println("\n실행 결과");
+        for (int i = 0; i < trial; i++) {
+            gameResult = racingGame.playOneCycle();
+            OutputView.printOneCycle(gameResult);
+        }
         OutputView.printWinners(gameResult.getWinner());
     }
 }

@@ -7,11 +7,11 @@ public class Validator {
     private static final int MAX_NAME_LENGTH = 5;
     private static final int MIN_OF_TRIAL = 1;
 
-    public static boolean checkCarNames(List<String> carNames) {
+    public static boolean validateCarNames(List<String> carNames) {
         try {
-            isCarNamesComma(carNames);
+            checkCarNamesEmpty(carNames);
             carNames.forEach(carName -> {
-                isCarNameBlank(carName);
+                checkCarNameBlank(carName);
                 checkCarNameLength(carName);
             });
         } catch (IllegalArgumentException e) {
@@ -21,7 +21,7 @@ public class Validator {
         return true;
     }
 
-    private static void isCarNameBlank(String carName) throws IllegalArgumentException {
+    private static void checkCarNameBlank(String carName) throws IllegalArgumentException {
         if (carName.isBlank()) {
             throw new IllegalArgumentException("자동차 이름으로 빈 문자열을 사용할수 없습니다.");
         }
@@ -33,13 +33,13 @@ public class Validator {
         }
     }
 
-    private static void isCarNamesComma(List<String> carNames) {
+    private static void checkCarNamesEmpty(List<String> carNames) {
         if (carNames.isEmpty()) {
-            throw new IllegalArgumentException("자동차 이름으로 콤마를 입력했습니다.");
+            throw new IllegalArgumentException("입력값이 비어있습니다. ");
         }
     }
 
-    public static boolean checkTrial(String uncheckedTrial) {
+    public static boolean validateTrial(String uncheckedTrial) {
         try {
             checkTrialType(uncheckedTrial);
             checkTrialRange(uncheckedTrial);

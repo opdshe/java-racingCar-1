@@ -13,14 +13,23 @@ public class RacingGameTest {
 
     @BeforeAll
     static void setUp() {
-        racingGame = new RacingGame();
+        List<String> carNames = Arrays.asList("hotba", "ford", "carpe");
+        racingGame = new RacingGame(carNames);
     }
 
     @Test
     void 자동차_리스트_생성_확인() {
-        List<String> carNames = Arrays.asList("hotba", "ford", "carpe");
-        assertThat(racingGame.run(carNames, 5).getCars())
+        assertThat(racingGame.getCarEntries())
                 .extracting("name")
                 .containsOnly("hotba", "ford", "carpe");
+    }
+
+    @Test
+    void 게임_한사이클_실행_확인() {
+        racingGame.playOneCycle().getCars()
+                .forEach(car -> {
+                    assertThat(car.getTravelDistance())
+                            .isBetween(0, 1);
+                });
     }
 }

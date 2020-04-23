@@ -1,7 +1,7 @@
 package racingCar.domain;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class GameResult {
     private List<Car> carEntries;
@@ -11,14 +11,10 @@ public class GameResult {
     }
 
     public List<Car> getWinner() {
-        List<Car> winners = new ArrayList<>();
         int maxDistance = getMaxDistance();
-        carEntries.forEach(car -> {
-            if (car.getTravelDistance() == maxDistance) {
-                winners.add(car);
-            }
-        });
-        return winners;
+        return carEntries.stream()
+                .filter(car -> car.getTravelDistance() == maxDistance)
+                .collect(Collectors.toList());
     }
 
     private int getMaxDistance() {

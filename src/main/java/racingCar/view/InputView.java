@@ -18,7 +18,7 @@ public class InputView {
             carNames = Arrays.stream(receivedCarNames.split(","))
                     .map(String::trim)
                     .collect(Collectors.toList());
-        } while (!Validator.checkCarNames(carNames));
+        } while (!Validator.validateCarNames(carNames));
         return carNames;
     }
 
@@ -27,7 +27,7 @@ public class InputView {
         do {
             System.out.println("시도할 회수는 몇 회인가요?");
             uncheckedTrial = scanner.next();
-        } while (!Validator.checkTrial(uncheckedTrial));
+        } while (!Validator.validateTrial(uncheckedTrial));
         return Integer.parseInt(uncheckedTrial);
     }
 }

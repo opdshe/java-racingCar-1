@@ -18,29 +18,29 @@ class ValidatorTest {
     @Test
     void 자동차_이름_빈문자열_확인() {
         List<String> carNames = convertToList("\n");
-        assertThat(Validator.checkCarNames(carNames)).isFalse();
+        assertThat(Validator.validateCarNames(carNames)).isFalse();
     }
 
     @Test
     void 자동차_이름_길이_확인() {
         List<String> carNames = convertToList("overFive, sixLen");
-        assertThat(Validator.checkCarNames(carNames)).isFalse();
+        assertThat(Validator.validateCarNames(carNames)).isFalse();
     }
 
     @Test
-    void 자동차_이름으로_콤마만_입력() {
+    void 자동차_이름_값_존재_확인() {
         List<String> carNames = convertToList(",");
-        assertThat(Validator.checkCarNames(carNames)).isFalse();
+        assertThat(Validator.validateCarNames(carNames)).isFalse();
     }
 
     @Test
     void 시도_회수_타입_획인() {
-        assertThat(Validator.checkTrial("숫자")).isFalse();
+        assertThat(Validator.validateTrial("숫자")).isFalse();
     }
 
     @Test
     void 시도_회수_범위_확인() {
-        assertThat(Validator.checkTrial("0")).isFalse();
+        assertThat(Validator.validateTrial("0")).isFalse();
     }
 
 }

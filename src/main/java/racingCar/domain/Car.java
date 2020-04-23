@@ -3,7 +3,7 @@ package racingCar.domain;
 public class Car {
     private static final int BENCHMARK = 4;
 
-    private String name;
+    private final String name;
     private int travelDistance;
 
     public Car(String name) {
