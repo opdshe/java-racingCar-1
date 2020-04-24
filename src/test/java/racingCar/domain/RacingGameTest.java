@@ -1,6 +1,5 @@
 package racingCar.domain;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingCar.interfaces.CarMovingStrategy;
@@ -15,20 +14,6 @@ public class RacingGameTest {
     private static final int MUST_GO_NUMBER = 4;
     private static final int NEVER_GO_NUMBER = 3;
     private static RacingGame racingGame;
-
-    private static class MustGoStrategy implements CarMovingStrategy {
-        @Override
-        public int generate() {
-            return MUST_GO_NUMBER;
-        }
-    }
-
-    private static class NeverGoStrategy implements CarMovingStrategy {
-        @Override
-        public int generate() {
-            return NEVER_GO_NUMBER;
-        }
-    }
 
     @BeforeEach
     void setUp() {
@@ -62,5 +47,19 @@ public class RacingGameTest {
         assertThat(racingGame.playOneCycle(new RandomCreator()).getCars())
                 .extracting(Car::getTravelDistance)
                 .containsAnyOf(0,1);
+    }
+
+    private static class MustGoStrategy implements CarMovingStrategy {
+        @Override
+        public int generate() {
+            return MUST_GO_NUMBER;
+        }
+    }
+
+    private static class NeverGoStrategy implements CarMovingStrategy {
+        @Override
+        public int generate() {
+            return NEVER_GO_NUMBER;
+        }
     }
 }
