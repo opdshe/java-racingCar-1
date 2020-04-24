@@ -1,9 +1,12 @@
 package racingCar.util;
 
-public class RandomCreator {
+import racingCar.interfaces.CarMovingStrategy;
+
+public class RandomCreator implements CarMovingStrategy {
     private static final int RANDOM_MAX = 9;
 
-    public static int getRandomNum() {
+    @Override
+    public int generate() {
         return (int) (Math.random() * RANDOM_MAX);
     }
 }

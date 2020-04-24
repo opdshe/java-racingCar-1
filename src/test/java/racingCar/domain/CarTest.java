@@ -20,14 +20,14 @@ public class CarTest {
     }
 
     @Test
-    void 자동차_이동_확인_4미만() {
+    void 자동차_정지_확인() {
         testCar.go(3);
         assertThat(testCar.getTravelDistance())
                 .isEqualTo(0);
     }
 
     @Test
-    void 자동차_이동_확인_4이상() {
+    void 자동차_이동_확인() {
         testCar.go(4);
         assertThat(testCar.getTravelDistance())
                 .isEqualTo(1);

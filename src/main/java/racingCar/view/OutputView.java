@@ -8,6 +8,9 @@ import java.util.stream.Collectors;
 
 
 public class OutputView {
+    public static void belowIsResult(){
+        System.out.println("실행 결과");
+    }
     public static void printOneCycle(GameResult gameResult) {
         gameResult.getCars().forEach(car -> {
             System.out.println(car.getName() + ": " + "-".repeat(car.getTravelDistance()));

@@ -1,8 +1,9 @@
 package racingCar.domain;
 
-import racingCar.util.RandomCreator;
+import racingCar.interfaces.CarMovingStrategy;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class RacingGame {
@@ -18,15 +19,15 @@ public class RacingGame {
         return carEntries;
     }
 
-    public GameResult playOneCycle() {
+    public GameResult playOneCycle(CarMovingStrategy strategy) {
         carEntries.forEach(car -> {
-            car.go(RandomCreator.getRandomNum());
+            car.go(strategy.generate());
         });
         return new GameResult(carEntries);
     }
 
     public List<Car> getCarEntries() {
-        return carEntries;
+        return Collections.unmodifiableList(carEntries);
     }
 }
 
