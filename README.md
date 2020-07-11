@@ -1,5 +1,5 @@
 # java-racingCar 
-# 자동차경주 게임 저장소 (OOP 스터디 네번째 미션)
+# 자동차경주 게임 저장소 - Renewal Version (OOP 스터디 네번째 미션)
 ## 프로그래밍 요구 사항
 - **모든 로직에 단위 테스트를 구현한다. 단, UI(System.out, System.in) 로직은 제외**
 - **MVC 패턴 구조를 유지하면서 구현한다.**
